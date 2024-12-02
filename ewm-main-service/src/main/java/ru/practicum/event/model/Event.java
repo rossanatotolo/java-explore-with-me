@@ -51,10 +51,6 @@ public class Event {
 
     private String description; // Описание события
 
-//    private Float lat; // Широта местоположения события
-//
-//    private Float lon; // Долгота местоположения события
-
     @Enumerated(EnumType.STRING)
     private EventState state; // Состояние события
 
@@ -77,6 +73,4 @@ public class Event {
 
     @Transient
     Integer views; // Количество просмотров события
-
-
 }

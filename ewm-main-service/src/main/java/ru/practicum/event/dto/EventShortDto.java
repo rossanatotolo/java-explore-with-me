@@ -22,6 +22,7 @@ public class EventShortDto {
     private String title; // Название события
 
     private String annotation;  // Аннотация события
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime eventDate; // Дата и время события
 

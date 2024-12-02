@@ -21,7 +21,6 @@ public interface EventService {
 
     EventFullDto updateEvent(final Long userId, final Long eventId, final EventUpdateDto eventUpdateDto);
 
-
     List<ParticipationRequestDto> getRequestsByEventId(final Long userId, final Long eventId);
 
     Map<String, List<ParticipationRequestDto>> approveRequests(final Long userId, final Long eventId,

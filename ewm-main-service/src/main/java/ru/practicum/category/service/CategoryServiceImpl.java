@@ -67,10 +67,6 @@ public class CategoryServiceImpl implements CategoryService {
             throw new ConflictException("Нельзя удалить категорию, с которой связаны события.");
         }
 
-//        final List<Event> events = eventRepository.findByCategoryId(catId);
-//        if (!events.isEmpty()) {
-//            throw new ConflictException("Нельзя удалить категорию, с которой связаны события.");
-//        }
         categoryRepository.delete(category);
         log.info("Категория с id  = {} удалена.", catId);
     }

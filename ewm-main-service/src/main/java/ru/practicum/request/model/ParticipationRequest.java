@@ -26,7 +26,6 @@ import java.time.LocalDateTime;
 @Table(name = "requests")
 public class ParticipationRequest {
     @Id
-    //@Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

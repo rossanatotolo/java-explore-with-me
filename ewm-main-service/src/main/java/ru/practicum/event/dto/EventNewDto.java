@@ -34,7 +34,7 @@ public class EventNewDto {
     private LocalDateTime eventDate;
 
     @NotNull
-    private  Location location;
+    private Location location;
 
     @JsonSetter(nulls = Nulls.SKIP)
     private Boolean paid = false;

@@ -27,15 +27,6 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public List<UserDtoOutput> getAllUsers(List<Long> ids, final int from, final int size) {
         PageRequest pageRequest = PageRequest.of(from / size, size);
-
-//        if (Objects.isNull(userIds) || userIds.isEmpty()) {
-//            Page<User> users = userRepository.findAll(pageRequest);
-//            log.info("Получение списка всех пользователей.");
-//            return UserMapper.toListDto(users);
-//        } else {
-//            List<User> userList = userRepository.findByIdInOrderByIdAsc(userIds, pageRequest);
-//            log.info("Получение списка всех пользователей по заданному id.");
-//            return UserMapper.toListDto(userList);
         log.info("Запрос на получение списка пользователей");
         final List<User> users;
         if (Objects.isNull(ids) || ids.isEmpty()) {
