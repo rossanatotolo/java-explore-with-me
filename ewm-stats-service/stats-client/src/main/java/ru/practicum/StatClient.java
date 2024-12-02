@@ -34,9 +34,9 @@ public class StatClient extends BaseClient {
     }
 
     public ResponseEntity<Object> getStats(final String start,
-                                                final String end,
-                                                @Nullable final List<String> uris,
-                                                final boolean unique) {
+                                           final String end,
+                                           @Nullable final List<String> uris,
+                                           final boolean unique) {
         Map<String, Object> parameters;
 
         if (Objects.isNull(uris)) {
