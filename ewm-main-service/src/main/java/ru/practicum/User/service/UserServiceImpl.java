@@ -11,7 +11,6 @@ import ru.practicum.User.mapper.UserMapper;
 import ru.practicum.User.model.User;
 import ru.practicum.User.repository.UserRepository;
 import ru.practicum.exception.DuplicatedDataException;
-import ru.practicum.exception.NotFoundException;
 
 import java.util.List;
 import java.util.Objects;
@@ -54,10 +53,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(final Long userId) {
-        final User user = userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("Пользователя с id = {} не существует." + userId));
-
-        userRepository.delete(user);
+        userRepository.deleteById(userId);
         log.info("Пользователь с id  = {} удален.", userId);
     }
 }

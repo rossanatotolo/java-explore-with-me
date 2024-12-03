@@ -59,15 +59,12 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(final long catId) {
-        final Category category = categoryRepository.findById(catId)
-                .orElseThrow(() -> new NotFoundException("Категории с id = {} не существует." + catId));
-
         if (eventRepository.existsByCategoryId(catId)) {
             log.warn("Категория с id {} связана с событием и не может быть удалена.", catId);
             throw new ConflictException("Нельзя удалить категорию, с которой связаны события.");
         }
 
-        categoryRepository.delete(category);
+        categoryRepository.deleteById(catId);
         log.info("Категория с id  = {} удалена.", catId);
     }
 
@@ -84,7 +81,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     @Transactional(readOnly = true)
     public List<CategoryOutputDto> getAllCategories(final int from, final int size) {
-       final Pageable pageable = PageRequest.of(from / size, size);
+        final Pageable pageable = PageRequest.of(from / size, size);
 
         Page<Category> categoryPage = categoryRepository.findAll(pageable);
         log.info("Получение списка всех категорий.");

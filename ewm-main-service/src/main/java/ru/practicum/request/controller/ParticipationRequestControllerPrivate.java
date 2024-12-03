@@ -25,6 +25,7 @@ public class ParticipationRequestControllerPrivate {
     private final ParticipationRequestService participationRequestService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<ParticipationRequestDto> getAllParticipationRequests(@PathVariable @Positive final Long userId) {
         return participationRequestService.getAllParticipationRequests(userId);
     }

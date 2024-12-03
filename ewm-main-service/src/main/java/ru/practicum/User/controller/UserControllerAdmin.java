@@ -30,6 +30,7 @@ public class UserControllerAdmin {
     private final UserService userService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<UserDtoOutput> getAllUsers(
             @RequestParam(required = false) final List<Long> ids,
             @RequestParam(defaultValue = "0") @PositiveOrZero final int from,

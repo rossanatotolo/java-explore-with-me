@@ -48,8 +48,6 @@ public class CompilationServiceImpl implements CompilationService {
 
     @Override
     public void deleteCompilation(final Long compId) {
-        compilationRepository.findById(compId)
-                .orElseThrow(() -> new NotFoundException("Подборки с id = {} не существует." + compId));
         compilationRepository.deleteById(compId);
         log.info("Удаление подборки с id = {} администратором.", compId);
     }
@@ -71,7 +69,7 @@ public class CompilationServiceImpl implements CompilationService {
 
         final Compilation newCompilation = compilationRepository.save(compilation);
         log.info("Обновление данных подборки с id = {}.", compId);
-       return CompilationMapper.toCompilationDto(newCompilation, events.stream()
+        return CompilationMapper.toCompilationDto(newCompilation, events.stream()
                 .map(EventMapper::toEventShortDto)
                 .toList());
     }

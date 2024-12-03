@@ -35,6 +35,7 @@ public class EventControllerPrivate {
     private final EventService eventService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public List<EventShortDto> getAllEvents(@PathVariable @Positive final Long userId,
                                             @RequestParam(defaultValue = "0") @PositiveOrZero final int from,
                                             @RequestParam(defaultValue = "10") @Positive final int size) {
@@ -48,6 +49,7 @@ public class EventControllerPrivate {
     }
 
     @GetMapping("/{eventId}")
+    @ResponseStatus(HttpStatus.OK)
     public EventFullDto getEventById(@PathVariable @Positive final Long userId, @PathVariable @Positive final Long eventId) {
         return eventService.getEventById(userId, eventId);
     }
@@ -59,6 +61,7 @@ public class EventControllerPrivate {
     }
 
     @GetMapping("/{eventId}/requests")
+    @ResponseStatus(HttpStatus.OK)
     public List<ParticipationRequestDto> getRequestsByEventId(@PathVariable final Long userId, @PathVariable final Long eventId) {
         return eventService.getRequestsByEventId(userId, eventId);
     }
