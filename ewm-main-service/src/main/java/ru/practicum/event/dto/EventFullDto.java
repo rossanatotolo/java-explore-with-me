@@ -18,7 +18,7 @@ public class EventFullDto {
 
     private CategoryOutputDto category; // Категория события
 
-    Integer confirmedRequests; //Количество одобренных заявок на участие в данном событии
+    private Integer confirmedRequests; //Количество одобренных заявок на участие в данном событии
 
     private Location location; // место проведения события
 
@@ -45,5 +45,5 @@ public class EventFullDto {
 
     private Boolean requestModeration; // Модерация заявок
 
-    Integer views; // Количество просмотров события
+    private Integer views; // Количество просмотров события
 }

@@ -17,27 +17,24 @@ public class CommentMapper {
                                     final User user,
                                     final Event event) {
 
-        final Comment comment = new Comment();
-
-        comment.setText(commentInputDto.getText());
-        comment.setCreated(LocalDateTime.now());
-        comment.setAuthor(user);
-        comment.setEvent(event);
-
-        return comment;
+        return new Comment(
+                null,
+                commentInputDto.getText(),
+                event,
+                user,
+                LocalDateTime.now()
+        );
     }
 
     public static CommentOutputDto toCommentOutputDto(final Comment comment) {
 
-        final CommentOutputDto commentOutputDto = new CommentOutputDto();
-
-        commentOutputDto.setId(comment.getId());
-        commentOutputDto.setText(comment.getText());
-        commentOutputDto.setAuthorName(comment.getAuthor().getName());
-        commentOutputDto.setEvent(EventMapper.toEventShortDto(comment.getEvent()));
-        commentOutputDto.setCreated(comment.getCreated());
-
-        return commentOutputDto;
+        return new CommentOutputDto(
+                comment.getId(),
+                comment.getText(),
+                comment.getAuthor().getName(),
+                EventMapper.toEventShortDto(comment.getEvent()),
+                comment.getCreated()
+        );
     }
 
     public static List<CommentOutputDto> toCommentDtoList(List<Comment> comments) {

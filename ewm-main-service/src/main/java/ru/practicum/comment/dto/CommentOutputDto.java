@@ -1,19 +1,23 @@
 package ru.practicum.comment.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.practicum.event.dto.EventShortDto;
 
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CommentOutputDto {
-    Long id;
+    private Long id;
 
-    String text;
+    private String text;
 
-    String authorName;
+    private String authorName;
 
-    EventShortDto event;
+    private EventShortDto event;
 
-    LocalDateTime created;
+    private LocalDateTime created;
 }
