@@ -14,13 +14,13 @@ import ru.practicum.User.model.User;
 import ru.practicum.User.repository.UserRepository;
 import ru.practicum.category.model.Category;
 import ru.practicum.category.repository.CategoryRepository;
-import ru.practicum.event.controller.EventControllerPublic;
 import ru.practicum.event.dto.EventFullDto;
 import ru.practicum.event.dto.EventNewDto;
 import ru.practicum.event.dto.EventShortDto;
 import ru.practicum.event.dto.EventUpdateDto;
 import ru.practicum.event.mapper.EventMapper;
 import ru.practicum.event.model.Event;
+import ru.practicum.event.model.EventSort;
 import ru.practicum.event.model.EventState;
 import ru.practicum.event.model.Location;
 import ru.practicum.event.model.StateAction;
@@ -383,7 +383,7 @@ public class EventServiceImpl implements EventService {
     @Transactional(readOnly = true)
     public List<EventShortDto> getAllPublic(final String text, final List<Long> categories, final Boolean paid,
                                             final String rangeStart, final String rangeEnd, final boolean onlyAvailable,
-                                            final EventControllerPublic.EventSort sort, final int from, final int size,
+                                            final EventSort sort, final int from, final int size,
                                             final HttpServletRequest request) {
         LocalDateTime start = (rangeStart != null) ? LocalDateTime.parse(rangeStart, FORMATTER) : LocalDateTime.now();
         LocalDateTime end = (rangeEnd != null) ? LocalDateTime.parse(rangeEnd, FORMATTER) : LocalDateTime.now().plusYears(20);
@@ -433,9 +433,9 @@ public class EventServiceImpl implements EventService {
         events.forEach(e -> e.setViews(Math.toIntExact(eventAndViews.getOrDefault(e.getId(), 0L))));
 
         if (Objects.nonNull(sort)) {
-            if (sort.equals(EventControllerPublic.EventSort.EVENT_DATE)) {
+            if (sort.equals(EventSort.EVENT_DATE)) {
                 events.sort(Comparator.comparing(Event::getEventDate));
-            } else if (sort.equals(EventControllerPublic.EventSort.VIEWS)) {
+            } else if (sort.equals(EventSort.VIEWS)) {
                 events.sort(Comparator.comparing(Event::getViews).reversed());
             }
         }

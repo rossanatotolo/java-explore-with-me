@@ -55,6 +55,7 @@ public class EventControllerPrivate {
     }
 
     @PatchMapping("/{eventId}")
+    @ResponseStatus(HttpStatus.OK)
     public EventFullDto updateEvent(@PathVariable @Positive final Long userId, @PathVariable @Positive final Long eventId,
                                @RequestBody @Valid final EventUpdateDto eventUpdateDto) {
         return eventService.updateEvent(userId, eventId, eventUpdateDto);
@@ -67,6 +68,7 @@ public class EventControllerPrivate {
     }
 
     @PatchMapping("/{eventId}/requests")
+    @ResponseStatus(HttpStatus.OK)
     public Map<String, List<ParticipationRequestDto>> approveRequests(@PathVariable final Long userId,
                                                                       @PathVariable final Long eventId,
                                                                       @RequestBody @Valid final EventRequestStatusUpdateRequest requestUpdateDto) {
