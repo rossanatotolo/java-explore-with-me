@@ -125,7 +125,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void deleteCommentByAdmin(final Long eventId) {
         commentRepository.deleteById(eventId);
-        log.info("Комментарий к событию с id = {} удален администратором.", eventId);
+        log.info("Комментарии к событию с id = {} удалены администратором.", eventId);
     }
 
     @Override
