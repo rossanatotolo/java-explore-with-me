@@ -1,7 +1,7 @@
 # Explore-with-me - микросервисное приложение-афиша мероприятий (дипломный проект).
 #### Приложение-Афиша ExploreWithMe (англ. «исследуй со мной»). Оно позволяет пользователям делиться информацией об интересных событиях и находить компанию для участия в них.
 
-Используемые инструменты:
+#### Используемые инструменты:
 Java,
 Spring (Boot, Data), 
 JPA Hibernate,
@@ -83,11 +83,11 @@ Swagger.
 
 
 #### Admin API
-DELETE /admin/comments/events/{eventId} - Удаление всех комментариев админом у текущего события.
+- DELETE /admin/comments/events/{eventId} - Удаление всех комментариев админом у текущего события.
 
 
 #### Public API
-GET /events/{eventId}/comments - Получение всех комментариев к определенному событию;
-GET /comments/{commentId} - Получение комментария по его id.
+- GET /events/{eventId}/comments - Получение всех комментариев к определенному событию;
+- GET /comments/{commentId} - Получение комментария по его id.
 
 ##### PULL REQUEST LINK - https://github.com/rossanatotolo/java-explore-with-me/pull/3
