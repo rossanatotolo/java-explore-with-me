@@ -15,7 +15,7 @@ import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.practicum.User.model.User;
+import ru.practicum.user.model.User;
 import ru.practicum.category.model.Category;
 
 import java.time.LocalDateTime;

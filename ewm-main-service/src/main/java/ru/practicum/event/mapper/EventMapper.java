@@ -1,7 +1,7 @@
 package ru.practicum.event.mapper;
 
-import ru.practicum.User.dto.UserDtoShort;
-import ru.practicum.User.model.User;
+import ru.practicum.user.dto.UserDtoShort;
+import ru.practicum.user.model.User;
 import ru.practicum.category.dto.CategoryOutputDto;
 import ru.practicum.category.model.Category;
 import ru.practicum.event.dto.EventFullDto;
