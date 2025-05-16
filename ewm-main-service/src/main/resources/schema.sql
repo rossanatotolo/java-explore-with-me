@@ -50,8 +50,8 @@ DROP TABLE IF EXISTS users, categories, locations, events, requests, compilation
      );
 
      CREATE TABLE IF NOT EXISTS compilations_events (
-     events_id                INTEGER REFERENCES events (id) ON DELETE CASCADE,
-     compilation_id           INTEGER REFERENCES compilations (id) ON DELETE CASCADE,
+     events_id                BIGINT REFERENCES events (id) ON DELETE CASCADE,
+     compilation_id           BIGINT REFERENCES compilations (id) ON DELETE CASCADE,
      CONSTRAINT PK_EVENTS_COMPILATIONS PRIMARY KEY(events_id, compilation_id)
      );
 
